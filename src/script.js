@@ -53,13 +53,21 @@ light2.add(pointLight2.position, "x").min(-6).max(6).step(0.01);
 light2.add(pointLight2.position, "z").min(-3).max(3).step(0.01);
 light2.add(pointLight2, "intensity").min(0).max(10).step(0.01);
 
+const light2Color = {
+  color: 0xff0000,
+};
+
+light2.addColor(light2Color, "color").onChange(() => {
+  pointLight2.color.set(light2Color.color);
+});
+
 const pointLight2Helper = new THREE.PointLightHelper(pointLight2, 0.3);
-scene.add(pointLight2Helper);
+// scene.add(pointLight2Helper);
 
 // Light 3
 const pointLight3 = new THREE.PointLight(0xfff000, 2);
-pointLight2.position.set(-2, 0.76, -3);
-pointLight2.intensity = 10;
+pointLight3.position.set(-2.24, -0.52, 0.86);
+pointLight3.intensity = 4.68;
 scene.add(pointLight3);
 
 const light3 = gui.addFolder("Light3"); // Light 3 folder
@@ -69,8 +77,16 @@ light3.add(pointLight3.position, "x").min(-6).max(6).step(0.01);
 light3.add(pointLight3.position, "z").min(-3).max(3).step(0.01);
 light3.add(pointLight3, "intensity").min(0).max(10).step(0.01);
 
+const light3Color = {
+  color: 0xfff000,
+};
+
+light3.addColor(light3Color, "color").onChange(() => {
+  pointLight3.color.set(light3Color.color);
+});
+
 const pointLight3Helper = new THREE.PointLightHelper(pointLight3, 0.3);
-scene.add(pointLight3Helper);
+// scene.add(pointLight3Helper);
 
 /**
  * Sizes
