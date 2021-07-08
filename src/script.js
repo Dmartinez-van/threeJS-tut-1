@@ -13,11 +13,13 @@ const canvas = document.querySelector("canvas.webgl");
 const scene = new THREE.Scene();
 
 // Objects
-const geometry = new THREE.TorusGeometry(0.7, 0.2, 16, 100);
+const geometry = new THREE.SphereBufferGeometry(0.5, 64, 64);
 
 // Materials
 
-const material = new THREE.MeshBasicMaterial();
+const material = new THREE.MeshStandardMaterial();
+material.metalness = 0.7;
+material.roughness = 0.2;
 material.color = new THREE.Color(0xff0000);
 
 // Mesh
@@ -78,6 +80,7 @@ controls.enableDamping = true;
  */
 const renderer = new THREE.WebGLRenderer({
   canvas: canvas,
+  alpha: true,
 });
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
